@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by LaunchCode
@@ -74,9 +75,9 @@ public class JobData {
 
         for (HashMap<String, String> row : allJobs) {
 
-            String aValue = row.get(column);
+            String aValue = row.get(column).toLowerCase();
 
-            if (aValue.contains(value)) {
+            if (aValue.contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -125,4 +126,34 @@ public class JobData {
         }
     }
 
-}
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        // load data from csv
+        loadData();
+        // initialize new list of values
+        ArrayList<HashMap<String, String>> jobValues = new ArrayList<>();
+
+        // for each line of values in the whole list
+
+        for (HashMap<String, String> oneJob : allJobs) {
+            // for each attribute within each job
+            for (String entries : oneJob.keySet()) {
+
+                // declare each value as an individual to be compared to the input
+                String matchedValue = oneJob.get(entries);
+                // if the input (converted to lowercase) matches (entry converted to lowercase)
+                if (matchedValue.toLowerCase().contains(value.toLowerCase())){
+                    // add that job to the list
+                    jobValues.add(oneJob);
+
+                }
+            }
+
+            }
+        // return the matched key/values
+            return jobValues;
+        }
+
+    }
+
+
+
