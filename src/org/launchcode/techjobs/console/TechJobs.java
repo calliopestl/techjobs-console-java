@@ -123,7 +123,8 @@ public class TechJobs {
 
                 //for each key in each group of job data
                 for (Map.Entry<String, String> aJob : eachJob.entrySet()) {
-                    System.out.println(aJob.getKey() + ": " + aJob.getValue());
+                 System.out.println(aJob.getKey() + ": " + aJob.getValue());
+
                 }
             }
         } else {

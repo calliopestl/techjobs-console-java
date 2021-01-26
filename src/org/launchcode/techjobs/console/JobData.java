@@ -144,7 +144,7 @@ public class JobData {
                 if (matchedValue.toLowerCase().contains(value.toLowerCase())){
                     // add that job to the list
                     jobValues.add(oneJob);
-
+                    break;
                 }
             }
 
